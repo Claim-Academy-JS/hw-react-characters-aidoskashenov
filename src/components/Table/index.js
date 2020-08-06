@@ -5,7 +5,7 @@ import {Input} from "./Form/Input";
 
 export const Table = () => {
   const [individs, setIndivids] = useState([]);
-  const [added, setAdded] = useState("");
+
 
   useEffect(() => {
     const results = async () => {
@@ -17,14 +17,19 @@ export const Table = () => {
 
   const addPerson = (event) => {
     const newPerson = {};
-    newPerson.name = event.target.children.name.value;
-    newPerson.job = event.target.children.job.value;
+    newPerson.name = event.target.name.value;
+    newPerson.job = event.target.job.value;
+
+    setIndivids( newPerson ? individs.concat(newPerson) : individs)
   };
+
+
 
   return (
     <>
+      <Input handleAddPerson={addPerson} />
       <Form people={individs} />
-      <Input handleSubmit={addPerson} />
+
     </>
   );
 };

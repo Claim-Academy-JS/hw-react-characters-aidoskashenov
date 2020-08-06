@@ -10,10 +10,10 @@ export const Form = ({ people }) => {
     <div key={i}>
       <p>
         {" "}
-        {person.name}
+        {person.name}<br/>
         {person.job}
       </p>
-      <p>Button</p>
+
     </div>
   ));
 };
